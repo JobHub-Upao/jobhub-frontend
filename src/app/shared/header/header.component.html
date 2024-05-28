@@ -15,11 +15,11 @@
                       <nav class="main-menu">
                          <ul class="menu-area-main">
                             <li class="active"> <a href="index.html">Inicio</a> </li>
-                            <li> <a href="#about">Nosotros</a> </li>
-                            <li> <a href="#service"> Servicios</a> </li>
-                            <li> <a href="#screenshot">Galería</a> </li>
-                            <li> <a href="#contact">Acceder</a> </li>
-                            <li> <a href="#blog">Salir</a> </li>
+                            <li> <a routerLink="about">Nosotros</a> </li>
+                            <li> <a href="service"> Servicios</a> </li>
+                            <li> <a href="screenshot">Galería</a> </li>
+                            <li *ngIf="!userLoginOn"> <a href="login">Acceder</a> </li>
+                            <li *ngIf="userLoginOn"> <a href="#blog">Salir</a> </li>
                             <li class="mean-last"> <a href="#"><img src="buscar.png" alt="#" /></a> </li>
                          </ul>
                       </nav>
