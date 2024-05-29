@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/auth/login.service';
+import { LoginRequest } from '../services/auth/loginRequest';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +14,7 @@ export class LoginComponent {
     email:['prueba@gmail.com',[Validators.required,Validators.email]],
     password: ['',Validators.required]    
   })
-  constructor(private formBuilder:FormBuilder, private router:Router){}
+  constructor(private formBuilder:FormBuilder, private router:Router, private loginService:LoginService){}
   get email(){
     return this.loginForm.controls.email;
   }
@@ -21,7 +23,17 @@ export class LoginComponent {
   }
   login(){
     if(this.loginForm.valid){
-      console.log("Llamar al servicio de login");
+      this.loginService.login(this.loginForm.value as LoginRequest).subscribe({
+        next: (userData) => {
+          console.log(userData);
+        },
+        error: (errorData) => {
+          console.error(errorData);
+        },
+        complete: () => {
+          console.info('Login completo');
+        }
+      });
       this.router.navigateByUrl('service');
       this.loginForm.reset();
     }
