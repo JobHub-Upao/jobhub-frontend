@@ -1,0 +1,64 @@
+<section id="login" class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">Acceder al entorno</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-12 col-lg-10">
+                <div class="wrap d-md-flex">
+                    <div class="text-wrap p-4 p-lg-5 text-center d-flex align-items-center order-md-last">
+                        <div class="text w-100">
+                            <h2>Saludos de Jobhub</h2>
+                            <p>¿No tienes una cuenta?</p>
+                            <a routerLink="" class="btn btn-white btn-outline-white">Empresa</a>
+                            <a routerLink="/candidato/registrar" class="btn btn-white btn-outline-white">Persona</a>
+                        </div>
+                    </div>
+                    <div class="login-wrap p-4 p-lg-5">
+                        <div class="d-flex">
+                            <div class="w-100">
+                                <h3 class="mb-4">Login</h3>
+                            </div>
+                        </div>
+                        <form [formGroup]="loginForm" action="#" class="signin-form">
+                            <div class="form-group mb-3">
+                                <label class="label" for="name">Usuario</label>
+                                <input formControlName="email" type="text" class="form-control" placeholder="email" required>
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="email.errors?.['required']">
+                                        Se necesita el usuario (email).
+                                    </div>
+                                    <div *ngIf="email.errors?.['email']">
+                                        Email debe tener formato válido.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label class="label" for="password">Password</label>
+                                <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                    class="text-danger">
+                                    <div *ngIf="password.errors?.['required']">
+                                        Se requiere la contraseña.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" (click)="login()" class="form-control btn btn-primary submit px-3">Ingresar</button>
+                            </div>
+                            <div class="form-group d-md-flex">
+                                <div class="w-50 text-md-right">
+                                    <a href="#">Olvidé mi contraseña</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

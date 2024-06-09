@@ -1,0 +1,44 @@
+<!--
+<form [formGroup]="candidatoForm" (ngSubmit)="registerCandidato()">
+
+     <input type="text" placeholder="ingrese su  nombre" formControlName="nombre">
+     
+     <input type="text" placeholder="ingrese su profesion" formControlName="profesion">
+     <input type="text" placeholder="ingrese su correo" formControlName="email">
+
+     <button type="submit" [disabled]="candidatoForm.invalid"> Registrar Candidato</button>
+</form>-->
+<div class="container-contact100">
+     <div class="wrap-contact100">
+         <form class="contact100-form validate-form" [formGroup]="candidatoForm" (ngSubmit)="registerCandidato()">
+             <span class="contact100-form-title">
+                 Formulario de registro
+             </span>
+ 
+             <div class="wrap-input100 validate-input" data-validate="Escriba su nombre">
+                 <input class="input100" type="text" formControlName="nombre" placeholder="Escriba su nombre" required>
+                 <span class="focus-input100"></span>
+             </div>
+ 
+             <div class="wrap-input100 validate-input" data-validate="Por favor ingrese su profesion">
+                 <input class="input100" type="text" formControlName="profesion" placeholder="Escriba su profesion" required>
+                 <span class="focus-input100"></span>
+             </div>
+ 
+             <div class="wrap-input100 validate-input" data-validate="Ingrese su email: e@a.x">
+                 <input class="input100" type="text" formControlName="email" placeholder="Escriba su email" required>
+                 <span class="focus-input100"></span>
+             </div>
+ 
+             <div class="container-contact100-form-btn">
+                 <button class="contact100-form-btn" [disabled]="candidatoForm.invalid">
+                     Enviar
+                 </button>
+             </div>
+         </form>
+ 
+         <div class="contact100-more">
+             Contáctanos al celular: <span class="contact100-more-highlight">946 042 281</span>
+         </div>
+     </div>
+ 
